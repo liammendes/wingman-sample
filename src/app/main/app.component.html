@@ -1,5 +1,25 @@
 <app-toolbar></app-toolbar>
-<div class="container mx-auto pt-32 px-16 step-1">
-    <p class="text-2xl text-gray-500 stylized subpixel-antialiased">STEP 1</p>
-    <p class="text-4xl text-gray-600 subpixel-antialiased">Sign In with your Phone Number</p>
+
+<ng-template #showNextStep>
+    <div class="container mx-auto mt-24 px-16 py-16 step-1 border border-gray-300 border-solid rounded-lg">
+        <p class="text-2xl text-gray-500 stylized subpixel-antialiased">STEP 1</p>
+        <p class="text-4xl text-gray-600 subpixel-antialiased">Sign In with your Phone Number</p>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-16 py-3 px-6 rounded" (click)="login()">
+            Sign In
+        </button>
+        <div id="firebaseui-auth-container">
+        </div>
+    </div>
+</ng-template>
+
+<div *ngIf="authentication.user | async as user; else showNextStep" class="container mx-auto mt-24 px-16 py-16 step-1 border border-gray-300 border-solid rounded-lg pattern-bg">
+    <h1>Your phone number is {{ user.phoneNumber }}!</h1>
+    <p class="text-4xl subpixel-antialiased">Demo: WhatsApp and SMS Cross Conversation</p>
+    <div class="mx-auto bg-white pt-16 rounded-lg text-black subpixel-antialiased">
+        <p class="px-16 pb-16">This example shows how Project Wingman could possibly work. It is built on the Twilio Conversations API and is used to demonstrate cross-channel communication. In the future, a user who doesn't have access to the Internet in a developing country could use a cheap WhatsApp plan to communicate using SMS with most of the fees going to the person who is configuring this using Project Wingman.</p>
+        <p class="px-16"> A user could also use this system (obviously if it was more cleaned up) to use WhatsApp and SMS at the same time (or whatever is cheapest) to combine 2 apps to 1 conversation.</p>
+        <iframe src="https://wingman-twilinst.web.app" width="100%" height="600">
+            <p>Your browser does not support iframes.</p>
+        </iframe>
+    </div>
 </div>

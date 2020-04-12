@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyBdUOpSjJPMCWqGoaxxo0Xy6Ibay7OBzTA',
+    authDomain: 'wingman-pw.firebaseapp.com',
+    databaseURL: 'https://wingman-pw.firebaseio.com',
+    projectId: 'wingman-pw',
+    storageBucket: 'wingman-pw.appspot.com',
+    messagingSenderId: '433584296229',
+    appId: '1:433584296229:web:1d8aa2a0aa5a219b980acc',
+    measurementId: 'G-D7DVKWSD82'
+  }
 };
 
 /*
